@@ -1,0 +1,45 @@
+{
+  "id": "/?source=pwa",
+  "name": "TAFAZZUL Constitution of India",
+  "short_name": "TAFAZZUL Const.",
+  "description": "Comprehensive, authoritative reference, and reader application for the Constitution of India with multilingual support.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "reference", "books", "government"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "TAFAZZUL Constitution Home Screen"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "TAFAZZUL Constitution Mobile View"
+    }
+  ]
+}

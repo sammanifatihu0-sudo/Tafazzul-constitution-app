@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "TAFAZZUL Constitution",
+    "slug": "tafazzul-constitution",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "package": "com.tafazzul.constitution",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "77b81777-38b4-4752-b066-63e13c05fb43"
+      }
+    }
+  }
+}

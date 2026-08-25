@@ -1,0 +1,24 @@
+{
+  "name": "tafazzul-constitution",
+  "version": "1.0.0",
+  "description": "TAFAZZUL Constitution Mobile Application",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "expo": "~51.0.0"
+  },
+  "devDependencies": {
+    "eas-cli": "^12.0.0"
+  },
+  "keywords": [
+    "constitution",
+    "india",
+    "tafazzul",
+    "expo",
+    "mobile"
+  ],
+  "author": "TAFAZZUL",
+  "license": "MIT"
+}
