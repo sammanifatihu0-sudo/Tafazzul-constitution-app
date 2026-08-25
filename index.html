@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -10,13 +10,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="TAFAZZUL Constitution">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#0b1120">
   <link rel="manifest" href="manifest.json">
 
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
   
   <!-- Embedded High-Performance Stylesheet -->
   <style>
@@ -1068,13 +1068,17 @@ input, select, textarea {
 }
 
 
-/* === LAYOUT & RESPONSIVE FIXES === */
+/* === MAJESTIC CONSTITUTION BACKGROUND & LUXURY THEME === */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
-  background-color: var(--app-bg);
+  background-color: #0b1120;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(217, 119, 6, 0.15), transparent 40%),
+    radial-gradient(circle at 10% 90%, rgba(5, 150, 105, 0.12), transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(37, 99, 235, 0.12), transparent 40%);
   font-family: var(--font-sans);
   color: var(--text-primary);
   overflow-x: hidden;
@@ -1111,9 +1115,14 @@ html, body {
   display: flex;
   flex-direction: column;
   background-color: var(--screen-bg);
+  background-image: 
+    radial-gradient(circle at 50% 12%, rgba(217, 119, 6, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 90% 85%, rgba(5, 150, 105, 0.04) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d97706' stroke-width='0.75' stroke-opacity='0.04'%3E%3Ccircle cx='80' cy='80' r='60'/%3E%3Ccircle cx='80' cy='80' r='40'/%3E%3Ccircle cx='80' cy='80' r='20'/%3E%3Cline x1='80' y1='20' x2='80' y2='140'/%3E%3Cline x1='20' y1='80' x2='140' y2='80'/%3E%3Cline x1='37.57' y1='37.57' x2='122.43' y2='122.43'/%3E%3Cline x1='37.57' y1='122.43' x2='122.43' y2='37.57'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(217, 119, 6, 0.15);
 }
 
 .app-wrapper.fullscreen-mode .app-screen {
@@ -1141,15 +1150,15 @@ html, body {
   border-bottom: 1px solid var(--border-color);
   z-index: 40;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 
 .app-viewport {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
-  padding-bottom: 5rem;
+  padding-bottom: 5.5rem;
   -webkit-overflow-scrolling: touch;
-  background-color: var(--screen-bg);
 }
 
 .app-bottom-nav {
@@ -1166,6 +1175,262 @@ html, body {
   border-top: 1px solid var(--border-color);
   z-index: 50;
   flex-shrink: 0;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.04);
+}
+
+/* Luxury Hero Card */
+.app-hero-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.96)),
+              radial-gradient(circle at 100% 0%, rgba(217, 119, 6, 0.14), transparent 70%);
+  border: 1.5px solid rgba(217, 119, 6, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(217, 119, 6, 0.09);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-hero-card::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 90px;
+  height: 90px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23d97706' stroke-width='1' stroke-opacity='0.22' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .app-hero-card {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-color: rgba(217, 119, 6, 0.35);
+}
+
+/* === REALISTIC 3D GRADIENT ICON BADGES === */
+.app-grid-icon {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  border: none !important;
+}
+
+.app-grid-card:hover .app-grid-icon,
+.app-grid-card:active .app-grid-icon {
+  transform: scale(1.1) rotate(2deg) !important;
+}
+
+.icon-preamble {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4) !important;
+}
+
+.icon-rights {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4) !important;
+}
+
+.icon-duties {
+  background: linear-gradient(135deg, #fbbf24, #d97706) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4) !important;
+}
+
+.icon-dpsp {
+  background: linear-gradient(135deg, #10b981, #047857) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4) !important;
+}
+
+.icon-parts {
+  background: linear-gradient(135deg, #818cf8, #4338ca) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4) !important;
+}
+
+.icon-schedules {
+  background: linear-gradient(135deg, #0ea5e9, #0369a1) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4) !important;
+}
+
+.icon-amendments {
+  background: linear-gradient(135deg, #f43f5e, #be123c) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4) !important;
+}
+
+.icon-saved {
+  background: linear-gradient(135deg, #ec4899, #be185d) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(219, 39, 119, 0.4) !important;
+}
+
+/* === ULTRA-PREMIUM TAFAZZUL SPLASH SCREEN === */
+.app-splash-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #090d16 0%, #0f172a 50%, #080c14 100%);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.5rem 1.5rem 2rem 1.5rem;
+  box-sizing: border-box;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+}
+
+.app-splash-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.splash-logo-wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-glow {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.45) 0%, rgba(217, 119, 6, 0) 70%);
+  animation: splashPulse 2s infinite ease-in-out;
+}
+
+.splash-badge {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(217, 119, 6, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(251, 191, 36, 0.5);
+  animation: splashScaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.splash-brand-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #fef3c7 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(217, 119, 6, 0.3);
+  animation: splashFadeUp 0.9s ease-out 0.2s both;
+}
+
+.splash-brand-sub {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-top: 0.4rem;
+  letter-spacing: 0.05em;
+  animation: splashFadeUp 0.9s ease-out 0.3s both;
+}
+
+.splash-brand-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+  letter-spacing: 0.02em;
+  animation: splashFadeUp 0.9s ease-out 0.4s both;
+}
+
+.splash-loader-bar {
+  width: 140px;
+  height: 3px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  margin-top: 2rem;
+  overflow: hidden;
+  position: relative;
+  animation: splashFadeUp 0.9s ease-out 0.5s both;
+}
+
+.splash-loader-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  border-radius: 9999px;
+  animation: splashProgress 1.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.splash-footer {
+  font-size: 0.6875rem;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: splashFadeUp 0.9s ease-out 0.6s both;
+}
+
+@keyframes splashPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.25); opacity: 0.9; }
+}
+
+@keyframes splashScaleIn {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes splashFadeUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes splashProgress {
+  0% { width: 0%; }
+  50% { width: 65%; }
+  100% { width: 100%; }
+}
+
+.sheet-item-icon svg {
+  display: block;
 }
   </style>
 </head>
@@ -1189,6 +1454,32 @@ html, body {
   <div class="app-wrapper mobile-frame-mode" id="appWrapper">
     <div class="app-screen" id="appScreen">
       
+      <!-- GRAND TAFAZZUL APP INTRO SPLASH SCREEN -->
+      <div id="appSplashScreen" class="app-splash-screen" title="Tap to enter app">
+        <div class="splash-content">
+          <div class="splash-logo-wrap">
+            <div class="splash-glow"></div>
+            <div class="splash-badge">
+              <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+          </div>
+          <h1 class="splash-brand-title">TAFAZZUL</h1>
+          <div class="splash-brand-sub">Constitution of India</div>
+          <div class="splash-brand-tag">The Supreme Legal Reference App</div>
+          
+          <div class="splash-loader-bar">
+            <div class="splash-loader-progress"></div>
+          </div>
+        </div>
+        <div class="splash-footer">
+          <span>Official Reference &#8226; Version 1.0</span>
+        </div>
+      </div>
+
       <!-- Native Mobile Top App Bar -->
       <header class="app-topbar" id="appTopbar">
         <div class="topbar-left">
@@ -1201,7 +1492,7 @@ html, body {
           </button>
           
           <div class="topbar-brand" id="topbarBrand">
-            <div class="app-logo-badge">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #d97706, #b45309); color: #fff;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                 <path d="M2 17l10 5 10-5"></path>
@@ -1209,26 +1500,24 @@ html, body {
               </svg>
             </div>
             <div class="topbar-title-wrap">
-              <h1 class="topbar-title" id="topbarTitle">TAFAZZUL Constitution</h1>
-              <span class="topbar-subtitle" id="topbarSubtitle">India â€¢ Official App</span>
+              <h1 class="topbar-title" id="topbarTitle" style="font-weight: 800; letter-spacing: -0.01em;">TAFAZZUL Constitution</h1>
+              <span class="topbar-subtitle" id="topbarSubtitle" style="color: var(--accent-amber); font-weight: 600;">India &#8226; Official App</span>
             </div>
           </div>
         </div>
 
         <div class="topbar-right">
-          <!-- Quick Article Number Jump Pad Button -->
-          <button id="jumpPadBtn" class="topbar-icon-btn" title="Quick Jump by Article #" aria-label="Jump to Article Number">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="4" y1="9" x2="20" y2="9"></line>
-              <line x1="4" y1="15" x2="20" y2="15"></line>
-              <line x1="10" y1="3" x2="8" y2="21"></line>
-              <line x1="16" y1="3" x2="14" y2="21"></line>
+          <!-- Professional Compass / Direct Article Jump Button -->
+          <button id="jumpPadBtn" class="topbar-icon-btn" title="Quick Article Jump" aria-label="Jump to Article Number">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor"></polygon>
             </svg>
           </button>
 
           <!-- Language Selector Button -->
-          <button id="langModalTriggerBtn" class="topbar-icon-btn lang-pill-btn" title="Change Language / à¤­à¤¾à¤·à¤¾ à¤¬à¤¦à¤²à¥‡à¤‚" aria-label="Change Language">
-            <span style="margin-right: 2px;">ðŸŒ</span>
+          <button id="langModalTriggerBtn" class="topbar-icon-btn lang-pill-btn" title="Change Language" aria-label="Change Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 3px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             <span id="langIndicator">EN</span>
           </button>
 
@@ -1313,7 +1602,10 @@ html, body {
         <div class="jump-scrim" id="languageScrim"></div>
         <div class="jump-box" style="max-height: 80vh; display: flex; flex-direction: column;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-            <h3 class="jump-title" style="margin-bottom: 0;">ðŸŒ Choose Language / à¤­à¤¾à¤·à¤¾ à¤šà¥à¤¨à¥‡à¤‚</h3>
+            <h3 class="jump-title" style="margin-bottom: 0; display: flex; align-items: center; gap: 0.4rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              Choose Language
+            </h3>
             <button id="closeLangModalBtn" style="font-size: 1.5rem; line-height: 1; color: var(--text-muted);">&times;</button>
           </div>
           <p class="jump-desc">Select your preferred language for reading the Constitution:</p>
@@ -1323,7 +1615,7 @@ html, body {
           </div>
 
           <div style="text-align: right;">
-            <button id="langModalDoneBtn" class="app-btn-primary" style="width: 100%;">Apply Language / à¤­à¤¾à¤·à¤¾ à¤²à¤¾à¤—à¥‚ à¤•à¤°à¥‡à¤‚</button>
+            <button id="langModalDoneBtn" class="app-btn-primary" style="width: 100%;">Apply Language</button>
           </div>
         </div>
       </div>
@@ -1339,56 +1631,72 @@ html, body {
           </div>
           <div class="sheet-links">
             <a href="#preamble" class="sheet-item">
-              <span class="sheet-item-icon">ðŸ“œ</span>
+              <span class="sheet-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </span>
               <div class="sheet-item-text">
                 <span class="sheet-item-title" id="sheetPreambleTitle">The Preamble</span>
                 <span class="sheet-item-desc">Sovereign, Socialist, Secular Republic values</span>
               </div>
             </a>
             <a href="#schedules" class="sheet-item">
-              <span class="sheet-item-icon">ðŸ“‘</span>
+              <span class="sheet-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              </span>
               <div class="sheet-item-text">
                 <span class="sheet-item-title" id="sheetSchedulesTitle">Schedules (1 to 12)</span>
                 <span class="sheet-item-desc">Official languages, powers, and oaths</span>
               </div>
             </a>
             <a href="#fundamental-duties" class="sheet-item">
-              <span class="sheet-item-icon">â­</span>
+              <span class="sheet-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </span>
               <div class="sheet-item-text">
                 <span class="sheet-item-title" id="sheetDutiesTitle">Fundamental Duties (51A)</span>
                 <span class="sheet-item-desc">11 Civic duties of citizens</span>
               </div>
             </a>
             <a href="#dpsp" class="sheet-item">
-              <span class="sheet-item-icon">ðŸ›ï¸</span>
+              <span class="sheet-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><line x1="9" y1="9" x2="9" y2="15"></line><line x1="15" y1="9" x2="15" y2="15"></line></svg>
+              </span>
               <div class="sheet-item-text">
                 <span class="sheet-item-title" id="sheetDpspTitle">Directive Principles (DPSP)</span>
                 <span class="sheet-item-desc">Part IV state welfare policies</span>
               </div>
             </a>
             <a href="#amendments" class="sheet-item">
-              <span class="sheet-item-icon">âš–ï¸</span>
+              <span class="sheet-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2"><path d="M12 3v18"></path><path d="M3 7l9-4 9 4"></path><path d="M6 10l-3 6h6l-3-6z"></path><path d="M18 10l-3 6h6l-3-6z"></path></svg>
+              </span>
               <div class="sheet-item-text">
                 <span class="sheet-item-title" id="sheetAmendmentsTitle">Constitutional Amendments</span>
                 <span class="sheet-item-desc">From 1st to 106th Amendment</span>
               </div>
             </a>
             <a href="#recent" class="sheet-item">
-              <span class="sheet-item-icon">ðŸ•’</span>
+              <span class="sheet-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </span>
               <div class="sheet-item-text">
                 <span class="sheet-item-title">Recently Viewed</span>
                 <span class="sheet-item-desc">Your reading history</span>
               </div>
             </a>
             <a href="#data-manager" class="sheet-item">
-              <span class="sheet-item-icon">ðŸ”„</span>
+              <span class="sheet-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+              </span>
               <div class="sheet-item-text">
                 <span class="sheet-item-title">Data Management & Import</span>
                 <span class="sheet-item-desc">Update official constitutional data</span>
               </div>
             </a>
             <a href="#about" class="sheet-item">
-              <span class="sheet-item-icon">â„¹ï¸</span>
+              <span class="sheet-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              </span>
               <div class="sheet-item-text">
                 <span class="sheet-item-title">About & Legal Disclaimer</span>
                 <span class="sheet-item-desc">Legislative Dept. source attribution</span>
@@ -4887,6 +5195,7 @@ if (typeof window !== "undefined") {
 // --- js\components\navbar.js ---
 /**
  * APP SHELL & MULTI-LANGUAGE NAVIGATION CONTROLLER
+ * Header always prominently features "TAFAZZUL Constitution".
  */
 
 const NavbarComponent = (() => {
@@ -5097,13 +5406,6 @@ const NavbarComponent = (() => {
     if (tabSearch) tabSearch.textContent = I18N.t("search");
     if (tabRights) tabRights.textContent = I18N.t("rights");
     if (tabSaved) tabSaved.textContent = I18N.t("saved");
-
-    // Update Topbar Subtitle
-    const topbarSubtitle = document.getElementById("topbarSubtitle");
-    if (topbarSubtitle) {
-      const langObj = I18N.getLanguageByCode(langCode);
-      topbarSubtitle.textContent = `${langObj.nativeName} • App`;
-    }
   }
 
   function setActiveRoute(route) {
@@ -5120,26 +5422,32 @@ const NavbarComponent = (() => {
 
     const backBtn = document.getElementById("topbarBackBtn");
     const topbarTitle = document.getElementById("topbarTitle");
+    const topbarSubtitle = document.getElementById("topbarSubtitle");
+
+    // Keep "TAFAZZUL Constitution" permanent on ALL screens
+    if (topbarTitle) {
+      topbarTitle.textContent = "TAFAZZUL Constitution";
+    }
 
     if (backBtn) {
       if (routeBase === "home") {
         backBtn.style.display = "none";
-        if (topbarTitle) topbarTitle.textContent = I18N.t("app_title");
+        if (topbarSubtitle) topbarSubtitle.textContent = "India • Official App";
       } else {
         backBtn.style.display = "flex";
-        if (topbarTitle) {
-          if (routeBase === "article") topbarTitle.textContent = I18N.t("read_article").replace(/[›→]/g, "").trim();
-          else if (routeBase === "parts") topbarTitle.textContent = I18N.t("parts");
-          else if (routeBase === "articles") topbarTitle.textContent = I18N.t("search");
-          else if (routeBase === "preamble") topbarTitle.textContent = I18N.t("preamble");
-          else if (routeBase === "schedules") topbarTitle.textContent = I18N.t("schedules");
-          else if (routeBase === "fundamental-rights") topbarTitle.textContent = I18N.t("rights");
-          else if (routeBase === "fundamental-duties") topbarTitle.textContent = I18N.t("duties");
-          else if (routeBase === "dpsp") topbarTitle.textContent = I18N.t("dpsp");
-          else if (routeBase === "amendments") topbarTitle.textContent = I18N.t("amendments");
-          else if (routeBase === "bookmarks") topbarTitle.textContent = I18N.t("saved");
-          else if (routeBase === "recent") topbarTitle.textContent = I18N.t("continue_reading");
-          else topbarTitle.textContent = I18N.t("app_title");
+        if (topbarSubtitle) {
+          if (routeBase === "article") topbarSubtitle.textContent = "Article Reader • TAFAZZUL";
+          else if (routeBase === "parts") topbarSubtitle.textContent = "25 Parts • TAFAZZUL";
+          else if (routeBase === "articles") topbarSubtitle.textContent = "Search Directory • TAFAZZUL";
+          else if (routeBase === "preamble") topbarSubtitle.textContent = "The Preamble • TAFAZZUL";
+          else if (routeBase === "schedules") topbarSubtitle.textContent = "Schedules 1-12 • TAFAZZUL";
+          else if (routeBase === "fundamental-rights") topbarSubtitle.textContent = "Fundamental Rights • TAFAZZUL";
+          else if (routeBase === "fundamental-duties") topbarSubtitle.textContent = "Fundamental Duties • TAFAZZUL";
+          else if (routeBase === "dpsp") topbarSubtitle.textContent = "Directive Principles • TAFAZZUL";
+          else if (routeBase === "amendments") topbarSubtitle.textContent = "Amendments • TAFAZZUL";
+          else if (routeBase === "bookmarks") topbarSubtitle.textContent = "Saved Articles • TAFAZZUL";
+          else if (routeBase === "recent") topbarSubtitle.textContent = "History • TAFAZZUL";
+          else topbarSubtitle.textContent = "India • Official App";
         }
       }
     }
@@ -6629,7 +6937,7 @@ if (typeof window !== "undefined") {
 
 // --- js\components\home.js ---
 /**
- * MOBILE APP HOME SCREEN WITH MULTI-LANGUAGE (i18n)
+ * MOBILE APP HOME SCREEN WITH REALISTIC LUXURY ICON BADGES
  */
 
 const HomeComponent = (() => {
@@ -6650,17 +6958,24 @@ const HomeComponent = (() => {
     const activeLang = StorageService.getLanguage() || "en";
 
     container.innerHTML = `
-      <!-- App Hero Card -->
+      <!-- App Hero Card with Golden Emblem Accent -->
       <div class="app-hero-card">
         <div class="app-hero-head">
-          <h2 class="app-hero-title">${I18N.t("app_title")}</h2>
-          <span class="app-article-badge">${I18N.getLanguageByCode(activeLang).nativeName}</span>
+          <div>
+            <h2 class="app-hero-title">TAFAZZUL Constitution</h2>
+            <div style="font-size: 0.6875rem; color: var(--accent-amber); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.15rem;">
+              The Supreme Law of India
+            </div>
+          </div>
+          <span class="app-article-badge" style="background: var(--surface-primary); color: var(--text-primary); border: 1px solid var(--border-color); font-weight: 700;">
+            ${I18N.getLanguageByCode(activeLang).nativeName}
+          </span>
         </div>
         <p class="app-hero-desc">${I18N.t("explore_desc")}</p>
 
-        <!-- Tap-to-Search Input -->
+        <!-- Tap-to-Search Box -->
         <div class="app-search-box" id="homeSearchTrigger">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
@@ -6668,71 +6983,128 @@ const HomeComponent = (() => {
         </div>
       </div>
 
-      <!-- Quick Action 2x4 Grid Tiles -->
+      <!-- Realistic Modern 2x4 Grid Tiles -->
       <div class="app-section-header">
         <h3 class="app-section-title">${I18N.t("explore_title")}</h3>
         <a href="#parts" class="app-section-link">${I18N.t("view_all")}</a>
       </div>
 
       <div class="app-grid-menu">
+        
+        <!-- 1. Preamble -->
         <a href="#preamble" class="app-grid-card">
-          <div class="app-grid-icon">📜</div>
+          <div class="app-grid-icon icon-preamble">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
           <div>
             <div class="app-grid-title">${I18N.t("preamble")}</div>
             <div class="app-grid-count">We, The People</div>
           </div>
         </a>
 
+        <!-- 2. Rights -->
         <a href="#fundamental-rights" class="app-grid-card">
-          <div class="app-grid-icon">🛡️</div>
+          <div class="app-grid-icon icon-rights">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+          </div>
           <div>
             <div class="app-grid-title">${I18N.t("rights")}</div>
             <div class="app-grid-count">Part III (12–35)</div>
           </div>
         </a>
 
+        <!-- 3. Duties -->
         <a href="#fundamental-duties" class="app-grid-card">
-          <div class="app-grid-icon">⭐</div>
+          <div class="app-grid-icon icon-duties">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
           <div>
             <div class="app-grid-title">${I18N.t("duties")}</div>
             <div class="app-grid-count">Art 51A (a–k)</div>
           </div>
         </a>
 
+        <!-- 4. DPSP -->
         <a href="#dpsp" class="app-grid-card">
-          <div class="app-grid-icon">🏛️</div>
+          <div class="app-grid-icon icon-dpsp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+              <line x1="9" y1="9" x2="9" y2="15"></line>
+              <line x1="15" y1="9" x2="15" y2="15"></line>
+              <line x1="4" y1="9" x2="20" y2="9"></line>
+            </svg>
+          </div>
           <div>
             <div class="app-grid-title">${I18N.t("dpsp")}</div>
             <div class="app-grid-count">Part IV (36–51)</div>
           </div>
         </a>
 
+        <!-- 5. Parts -->
         <a href="#parts" class="app-grid-card">
-          <div class="app-grid-icon">📑</div>
+          <div class="app-grid-icon icon-parts">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              <line x1="9" y1="7" x2="15" y2="7"></line>
+              <line x1="9" y1="11" x2="13" y2="11"></line>
+            </svg>
+          </div>
           <div>
             <div class="app-grid-title">${I18N.t("parts")}</div>
             <div class="app-grid-count">I to XXII</div>
           </div>
         </a>
 
+        <!-- 6. Schedules -->
         <a href="#schedules" class="app-grid-card">
-          <div class="app-grid-icon">📋</div>
+          <div class="app-grid-icon icon-schedules">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+          </div>
           <div>
             <div class="app-grid-title">${I18N.t("schedules")}</div>
             <div class="app-grid-count">1 to 12</div>
           </div>
         </a>
 
+        <!-- 7. Amendments -->
         <a href="#amendments" class="app-grid-card">
-          <div class="app-grid-icon">⚖️</div>
+          <div class="app-grid-icon icon-amendments">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v18"></path>
+              <path d="M3 7l9-4 9 4"></path>
+              <path d="M6 10l-3 6h6l-3-6z"></path>
+              <path d="M18 10l-3 6h6l-3-6z"></path>
+            </svg>
+          </div>
           <div>
             <div class="app-grid-title">${I18N.t("amendments")}</div>
             <div class="app-grid-count">1st to 106th</div>
           </div>
         </a>
 
+        <!-- 8. Bookmarks -->
         <a href="#bookmarks" class="app-grid-card">
-          <div class="app-grid-icon">🔖</div>
+          <div class="app-grid-icon icon-saved">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
           <div>
             <div class="app-grid-title">${I18N.t("saved")}</div>
             <div class="app-grid-count">My Bookmarks</div>
@@ -7017,6 +7389,33 @@ if (document.readyState === "loading") {
   App.init();
 }
 
+
+// --- Splash Screen Controller ---
+(function() {
+  function dismissSplash() {
+    const splash = document.getElementById("appSplashScreen");
+    if (splash && !splash.classList.contains("hidden")) {
+      splash.classList.add("hidden");
+      setTimeout(() => {
+        splash.style.display = "none";
+      }, 700);
+    }
+  }
+
+  // Auto-dismiss after smooth 2-second grand intro
+  window.addEventListener("load", () => {
+    setTimeout(dismissSplash, 1800);
+  });
+
+  // Fallback tap-to-skip
+  document.addEventListener("DOMContentLoaded", () => {
+    const splash = document.getElementById("appSplashScreen");
+    if (splash) {
+      splash.addEventListener("click", dismissSplash);
+    }
+    setTimeout(dismissSplash, 2500);
+  });
+})();
 
   </script>
 </body>

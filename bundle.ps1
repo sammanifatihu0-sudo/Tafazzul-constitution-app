@@ -1,9 +1,11 @@
+# Strict UTF-8 Encoding Handler for Unicode (Indic Scripts & Emojis)
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $base = $PSScriptRoot
 
 # Read CSS
-$css = [System.IO.File]::ReadAllText((Join-Path $base "css\style.css"), [System.Text.Encoding]::UTF8)
+$css = [System.IO.File]::ReadAllText((Join-Path $base "css\style.css"), $utf8NoBom)
 
-# Read all JS files in correct dependency order
+# Read all JS files with strict UTF-8
 $jsFiles = @(
   "js\data\constitution_data.js",
   "js\data\hindi_translations.js",
@@ -34,13 +36,37 @@ $combinedJs = ""
 foreach ($file in $jsFiles) {
   $filePath = Join-Path $base $file
   if (Test-Path $filePath) {
-    $content = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
+    $content = [System.IO.File]::ReadAllText($filePath, $utf8NoBom)
     $combinedJs += "`n// --- $file ---`n" + $content + "`n"
   }
 }
 
-# Mobile Frame & Fullscreen layout fixes to ensure perfect mobile experience on phone & desktop
-$layoutFixCss = @"
+# Template string with proper Unicode & Layout
+$htmlTemplate = @'
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>TAFAZZUL Constitution</title>
+  
+  <!-- PWA & Mobile App Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="TAFAZZUL Constitution">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Embedded High-Performance Stylesheet -->
+  <style>
+/*__CSS_PLACEHOLDER__*/
+
 /* === LAYOUT & RESPONSIVE FIXES === */
 html, body {
   margin: 0;
@@ -140,34 +166,6 @@ html, body {
   z-index: 50;
   flex-shrink: 0;
 }
-"@
-
-$finalHtml = @"
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>TAFAZZUL Constitution</title>
-  
-  <!-- PWA & Mobile App Meta Tags -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="TAFAZZUL Constitution">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="manifest" href="manifest.json">
-
-  <!-- Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-  
-  <!-- Embedded High-Performance Stylesheet -->
-  <style>
-$css
-
-$layoutFixCss
   </style>
 </head>
 <body class="app-body">
@@ -437,11 +435,13 @@ $layoutFixCss
 
   <!-- Complete Standalone Application Logic Bundle -->
   <script>
-$combinedJs
+/*__JS_PLACEHOLDER__*/
   </script>
 </body>
 </html>
-"@
+'@
 
-[System.IO.File]::WriteAllText((Join-Path $base "index.html"), $finalHtml, [System.Text.Encoding]::UTF8)
-Write-Host "Complete Standalone App Bundle successfully written to index.html!"
+$finalHtml = $htmlTemplate.Replace('/*__CSS_PLACEHOLDER__*/', $css).Replace('/*__JS_PLACEHOLDER__*/', $combinedJs)
+
+[System.IO.File]::WriteAllText((Join-Path $base "index.html"), $finalHtml, $utf8NoBom)
+Write-Host "Strict UTF-8 index.html written successfully without encoding issues!"
